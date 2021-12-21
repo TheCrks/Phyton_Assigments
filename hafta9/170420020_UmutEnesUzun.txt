@@ -1,0 +1,77 @@
+sayi = int(input("Uzunluk Degeri: "))
+
+print("\n-----------------Soru1--------------------\n")
+def triangle(uzunluk):
+    
+    if uzunluk >=1:
+        for i in range(0,uzunluk):
+            print("*",end="")
+        print("")    
+        triangle(uzunluk-1)
+    
+triangle(sayi)    
+print("\n-----------------Soru2--------------------\n")
+
+
+
+def papyon(uzunluk):
+    global sayi    
+    if uzunluk >=1: 
+        for i in range(0,uzunluk):
+            print("*",end="")
+        print("")
+        papyon(uzunluk-1)
+    elif uzunluk ==0 or uzunluk ==-1:
+        papyon(uzunluk-1)
+    else :
+        if uzunluk >= -sayi:
+            for i in range(0,uzunluk*(-1)):
+                print("*",end="")
+            print("")    
+            papyon(uzunluk-1)
+
+papyon(sayi)
+print("\n-----------------Soru3--------------------\n")
+
+
+semboller = input("Yazılacak karakterleri giriniz(2 tane aralarında bosluk olacak sekilde):")
+sembol = semboller.split()
+print("\n")
+
+def degistir(uzunluk):
+    global sayi
+    global sembol
+    if sayi!=1 or sayi!=0:
+        if uzunluk ==0 or uzunluk ==-1 or uzunluk ==-2 or uzunluk ==2:
+            degistir(uzunluk-1)
+        elif uzunluk >1:
+            for i in range(0,uzunluk):
+                print(sembol[0],end="")
+            for i in range(0,uzunluk):
+                print(sembol[1],end="")
+            print("")
+            degistir(uzunluk-1)        
+        elif uzunluk ==1:
+            print(sembol[0],end="")
+            print(sembol[0])
+            degistir(uzunluk-1)
+        else :
+            if uzunluk >= -sayi:
+                for i in range(0,uzunluk*(-1)):
+                    print(sembol[1],end="")
+                for i in range(0,uzunluk*(-1)):
+                    print(sembol[0],end="")                
+                print("")    
+                degistir(uzunluk-1)  
+    else:
+        print("")            
+            
+degistir(sayi)            
+    
+    
+    
+    
+    
+    
+    
+    

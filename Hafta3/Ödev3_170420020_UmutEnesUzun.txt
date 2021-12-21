@@ -1,0 +1,44 @@
+#Soru 1
+Genislik = int(input("Genislik Değerini Giriniz: "))
+Yukseklik = int(input("Yukseklik Değerini Giriniz: ")) #Kullanicidan yukseklik ve genislik degerlerini alma
+SonSatir = Genislik-1
+
+for i in range(0,Yukseklik):
+    for j in range(0,Genislik):
+        if i==0 or i==Yukseklik-1 : #ilk ve son satırı tam bastırmak için
+            print("*",end="")
+        else:   #orta satırları tek bastırmak için
+            if j==0 or j==Genislik-1:
+                print("*",end="")
+            else:
+                print(" ",end="")
+    print("")                
+
+#Soru2
+
+Sicaklik=float(input("Sicaklik Değerini Gİriniz: ")) #Sicaklik değeri alma
+
+def BirimCevirme():
+    Birim=input("Birimi Giriniz(Celsius , Fahrenheit)")    #Birimi alma (Yanlis girilmeler için Fonksiyon içinde)
+
+    if Birim == "Celsius" :     #Celsius'u Fahrenfeit'a Çevirme ve Yazdırma
+        print(Sicaklik ," Celsius =" , (Sicaklik*9/5 +32) ,"Fahrenheit")
+    elif Birim == "Fahrenheit" : #Fahrenfeit'ı Celsiusa Çevirme ve Yazdırma
+        print(Sicaklik ," Fahrenheit =" , (Sicaklik-32)*5/9 ,"Celsius")
+    else:   #Yanlış birim girilirse tekrar birim isteme
+        print("Geçersiz Birim Girdiniz Lutfen Tekrar Deneyin")
+        BirimCevirme()
+BirimCevirme()
+
+#Soru3
+
+Toplam=0
+A=0
+
+
+for i in range(0,2000):
+    A=((-1)**i)*(i+1)  #-1 uzeri i ile değisken işareti bulup Toplamda toplanıyor
+    print("(",A,")","+",end="")
+    Toplam+=A
+
+print(" = ",Toplam)

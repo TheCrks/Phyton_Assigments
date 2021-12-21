@@ -1,0 +1,52 @@
+#soru1
+
+isim = input("Ogrenci adı giriniz: ")
+notu = input("Harf Notu Giriniz: ")
+notu = notu.capitalize()
+nameList = []
+notlar = {isim:notu}
+
+def metod(isim,notu) :
+    nameList.append(isim)
+    isim = input("Ogrenci adı giriniz: ")
+    if isim=="?":
+        return
+    notu = input("Harf Notu Giriniz: ")
+    notu = notu.upper()
+    notlar[isim]= notu
+    return metod(isim, notu)
+metod(isim,notu) 
+        
+ 
+print(notlar)            
+        
+
+char = input("A-F arası bir not giriniz: ")
+char = char.capitalize()
+
+def metod2(char,dictonary):
+    newDictonary = {}
+    for i in range(0,len(nameList)):
+        if dictonary[nameList[i]] == char:
+            newDictonary[nameList[i]] = char
+    return newDictonary
+print(metod2(char, notlar))            
+
+#soru2
+print("\n\n")
+Dictonary={}
+
+
+def f(x):
+    y=x**3-4*x**2
+    return y
+
+sart=True
+i=0
+while sart:
+    Dictonary["f("+str(i)+")"]=str(f(i))
+    i+=1
+    if f(i)>5000:
+        break
+    
+print(Dictonary)        

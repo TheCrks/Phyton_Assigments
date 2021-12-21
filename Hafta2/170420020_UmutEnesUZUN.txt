@@ -1,0 +1,26 @@
+#Soru 1
+Sayi=int(input("Bir Sayi Giriniz: "))
+counter = 0
+for i in range(2,Sayi):
+    if Sayi%i == 0:
+        counter+=1
+if counter >= 1:
+    print(Sayi," Bir asal sayi değil")
+else:
+    print(Sayi, "Bir asal sayi")
+#Soru 2
+
+Min=int(input("Alt Değer: "))
+Max=int(input("Üst Değer"))
+
+for i in range(Min,Max+1):
+    check = 0
+    for j in range(2,i):
+        if i%j == 0:
+             print(i," = ", j , "*" , i/j )
+             check+=1
+             break
+    if check ==0:     
+        print(i, " Asal Sayi")
+    else:
+        pass

@@ -1,0 +1,60 @@
+import json
+
+def inputAl(List):
+    string = input("Bir cümle giriniz: ")
+    List = string.split(" ")
+    print("Alınan Liste: " , List)
+    return List
+    
+def titleYap(List):    
+    counter=0
+    for i in List:
+        i=i.title()
+        List[counter]=i
+        counter+=1    
+    print("Yeni Liste: " , List)
+    return List
+
+def dosyaYazdır(dosyaAdi,List):
+    f = open(dosyaAdi,"w")        
+    json.dump(List, f)
+    f.close()
+
+def dosyaOku(dosyaAdi,NewList):
+    f = open(dosyaAdi,"r")    
+    NewList = json.load(f)
+    f.close()
+    print("Okunmuş dosya: " , NewList)
+    return NewList
+    
+def buyukHarf(NewList):    
+    NewCounter = 0
+    for i in NewList:
+        i=i.upper()
+        NewList[NewCounter]=i
+        NewCounter+=1
+    print("Buyuk Liste: " , NewList)
+    return NewList
+
+def cümleYap(NewList):
+    cümle = ""
+    for i in NewList:
+        cümle +=i+" "
+    return cümle    
+List=[]
+NewList=[]   
+
+List = inputAl(List)
+List = titleYap(List)
+try:
+    dosyaYazdır("dosya.json", List)
+except:
+    print("Dosya Oluşturulamadi!")
+    exit(0)    
+try:      
+    NewList = dosyaOku("dosya.json", NewList)
+except:
+    print("Dosya Okunamadi!")
+    exit(0) 
+NewList = buyukHarf(NewList)    
+print("Son Cümle: "+ cümleYap(NewList))    

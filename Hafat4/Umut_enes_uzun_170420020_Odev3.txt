@@ -1,0 +1,125 @@
+# -*- coding: utf-8 -*-
+#soru1
+
+for i in range(0,10):
+    print("A",end="")
+for j in range(0,7):
+    print("B",end="")
+for k in range(0,4):
+    print("CD",end="")
+for l in range(0,8):
+    if l == 0 :
+        print("E",end="")
+    if l == 7 :
+        print("G",end="")
+    else:
+        print("F",end="")
+
+#soru2
+
+Word = input("Bir Dizi Giriniz: ")
+Word = str.lower(Word)
+counter=0
+
+for i in range(0,len(Word)):
+    if Word[i] == Word[len(Word)-1-i]:
+        counter+=1
+
+if counter == len(Word):
+    print("Dizi palindrom")
+else:
+    print("Dizi Palindrom değil")      
+
+#soru3
+import random
+
+List = []
+total = 0
+maximum = 0
+minimum = 100
+max2 = 0
+min2= 100
+evenNumbers=0
+EvenNumbersList = []
+
+
+for i in range(0,20):
+    List.append(int(random.random()*99+1))
+    print(List[i], end=" ")
+    total += List[i]
+    if List[i] > maximum:
+        maximum = List[i]
+    if List[i] < minimum:
+        minimum = List[i]
+
+for i in range(0,20):
+    if List[i] > max2 and List[i]<maximum:
+        max2=List[i]
+    if List[i] < min2 and List[i]>minimum:
+        min2=List[i]
+
+for i in range(0,20):
+    for j in range(0,20):
+        if List[i] == List[j]:
+            if i==j:
+                pass
+            else:
+                EvenNumbersList.append(List[i])
+                evenNumbers+=1
+
+    
+print("\nAverage Of The Elements: ",total/20)
+print("Smallest: ",minimum," Largest: ",maximum)
+print("Second Largest: ",max2," Sencond Smallest: ",min2)
+print("The are ",evenNumbers," Even Numbers in the list: ",EvenNumbersList,end="")
+
+
+#soru4
+
+import sys
+
+Int=0
+counter=0
+    
+while Int>=0:
+    Int = int(input("Bir Sayi Giriniz: "))
+    if Int <0:
+        sys.exit()
+    yedek=Int
+    
+    if 0 <= Int < 10:
+        print("Toplamsal Kalıcılık: 0")
+        print("Çarpımsal Kalıcılık: 0")
+        print("Toplamsal Kökü: ",Int)
+        print("Çarpımsal Kökü: ",Int)
+    else:
+        print("Toplama: ")
+        NewValue=Int
+        ToplamsalKalicilik=0
+        while NewValue%10 !=NewValue:
+            Basamaklar = []
+            Basamaklar.clear()
+            while NewValue !=0:
+                Basamaklar.append(int(NewValue%10))
+                NewValue=int(NewValue/10)
+            for i in range(0,len(Basamaklar)):
+                NewValue += Basamaklar[i]
+            print("New Value: ",NewValue)
+            ToplamsalKalicilik+=1
+            
+        print("\n\n\nCarpma: ")
+        NewValueC=Int
+        CarpimsalKalicilik=0
+        while NewValueC%10 !=NewValueC:
+            BasamaklarC = []
+            BasamaklarC.clear()
+            while NewValueC !=0:
+                BasamaklarC.append(int(NewValueC%10))
+                NewValueC=int(NewValueC/10)
+            NewValueC=1    
+            for i in range(0,len(BasamaklarC)):
+                NewValueC *= BasamaklarC[i]
+            print("New Value: ",NewValueC)
+            CarpimsalKalicilik+=1            
+        print("\n\n\n",Int," Sayısı için", " Toplamsal Kalıcılık=",ToplamsalKalicilik," Çarpımsal Kalıcılık=",CarpimsalKalicilik,"\n\nToplamsal Kök=",NewValue," Çarpımsal Kök=",NewValueC)    
+                  
