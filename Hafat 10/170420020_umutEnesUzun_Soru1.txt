@@ -1,0 +1,27 @@
+import random
+
+matris = [[0,0,0],[0,0,0],[0,0,0]]
+
+
+for i in range(0,1):
+    for j in range(0,3):
+        matris[j][i] = random.randint(0,100)
+
+print(matris)    
+    
+
+def sifirBul(mat, x,y):
+    sifirList=[]
+    counter = 0
+    for i in range(0,y):
+        counter = 0
+        for j in range(0,x):
+            if mat[j][i] == 0:
+                counter +=1
+        if counter>=y:
+            sifirList.append(i+1)
+    return sifirList
+
+
+print("Matrisin" , sifirBul(matris, 3, 3) , "sütünları 0'lardan oluşmuş")
+         
